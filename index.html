@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Павел — full-stack разработка и ИИ-автоматизация</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Портфолио Павла: Telegram-боты с онлайн-оплатой, мини-приложения, сайты — full-stack разработка и автоматизация с ИИ. Настройка сервера и хостинга, деплой на реальный сервер 24/7. Работаю удалённо. Связь: Telegram @pavelWork0." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pavelkrotov.dev/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:url" content="https://pavelkrotov.dev/" />
+  <meta property="og:title" content="Павел — full-stack разработка и ИИ-автоматизация" />
+  <meta property="og:description" content="Full-stack разработка и ИИ-автоматизация: Telegram-боты с оплатой, мини-приложения, сайты, настройка сервера. Работаю удалённо. Telegram: @pavelWork0" />
+  <meta property="og:image" content="https://pavelkrotov.dev/og-banner-v7.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Павел — full-stack разработка и ИИ-автоматизация" />
+  <meta name="twitter:description" content="Full-stack разработка и ИИ-автоматизация: боты с оплатой, мини-приложения, сайты, сервер под ключ. Связь в Telegram @pavelWork0" />
+  <meta name="twitter:image" content="https://pavelkrotov.dev/og-banner-v7.png" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c5cff'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='%230a0a12'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='58' font-weight='700' text-anchor='middle' fill='url(%23g)'%3EP%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --font-head: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+      --bg: #07070c;
+      --bg-2: #05050a;
+      --surface: rgba(255, 255, 255, 0.025);
+      --surface-2: rgba(255, 255, 255, 0.045);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+
+      --text: #f5f5f8;
+      --text-muted: #9b9baa;
+      --text-dim: #6a6a78;
+
+      --violet: #7c5cff;
+      --cyan: #22d3ee;
+      --accent: #7c5cff;
+      --accent-grad: linear-gradient(100deg, #7c5cff 0%, #22d3ee 100%);
+      --glow: rgba(124, 92, 255, 0.30);
+      --glow-cyan: rgba(34, 211, 238, 0.22);
+
+      --radius: 20px;
+      --radius-sm: 14px;
+      --radius-full: 999px;
+      --maxw: 1080px;
+    }
+
+    body.theme-light {
+      --bg: #f4f4f7;
+      --bg-2: #ececf2;
+      --surface: rgba(10, 10, 25, 0.025);
+      --surface-2: rgba(10, 10, 25, 0.05);
+      --border: rgba(10, 10, 30, 0.10);
+      --border-strong: rgba(10, 10, 30, 0.20);
+
+      --text: #0f0f1a;
+      --text-muted: #55556a;
+      --text-dim: #83839a;
+
+      --glow: rgba(124, 92, 255, 0.18);
+      --glow-cyan: rgba(34, 211, 238, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    /* ---- Ambient background: neon mesh + grid ---- */
+    .bg-fx {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .bg-fx::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 75%);
+    }
+    body.theme-light .bg-fx::before {
+      background-image:
+        linear-gradient(rgba(10, 10, 30, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10, 10, 30, 0.05) 1px, transparent 1px);
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .orb-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, var(--glow), transparent 70%);
+      top: -160px; left: -120px;
+      animation: float1 16s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, var(--glow-cyan), transparent 70%);
+      top: 20%; right: -140px;
+      animation: float2 20s ease-in-out infinite;
+    }
+    .orb-3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--glow), transparent 70%);
+      bottom: -120px; left: 30%;
+      opacity: 0.4;
+      animation: float1 24s ease-in-out infinite;
+    }
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(40px, 50px); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-50px, 40px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orb { animation: none; }
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 30px 24px 80px;
+    }
+
+    /* ---- Top bar ---- */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .brand-mark {
+      width: 38px; height: 38px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent-grad);
+      box-shadow: 0 0 22px var(--glow);
+    }
+    .brand-text { font-size: 1.02rem; }
+    .theme-btn {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+    }
+    .theme-btn:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+
+    /* ---- Reveal ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.in-view { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.05s; }
+    .d2 { transition-delay: 0.14s; }
+    .d3 { transition-delay: 0.22s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 26px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 22px;
+    }
+    .eyebrow .pulse {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+      animation: blink 2.4s ease-in-out infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    .hero-name {
+      font-family: var(--font-head);
+      font-size: clamp(3.2rem, 9vw, 5.4rem);
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+    }
+    .hero-name .grad {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-role {
+      font-family: var(--font-head);
+      font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+      font-weight: 500;
+      color: var(--text);
+      margin: 0 0 20px;
+    }
+    .hero-desc {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      max-width: 46ch;
+      margin: 0 0 26px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .tag {
+      font-size: 0.86rem;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: 0.98rem;
+      padding: 13px 24px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.2s, box-shadow 0.3s, border-color 0.25s, background 0.25s;
+    }
+    .btn-primary {
+      color: #fff;
+      background: var(--accent-grad);
+      box-shadow: 0 0 0 rgba(124, 92, 255, 0);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 34px var(--glow);
+    }
+    .btn-ghost {
+      color: var(--text);
+      border-color: var(--border-strong);
+      background: var(--surface);
+    }
+    .btn-ghost:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 0 24px var(--glow);
+    }
+
+    /* ---- Profile card ---- */
+    .profile {
+      position: relative;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      border-radius: 24px;
+      padding: 34px 26px 26px;
+      text-align: center;
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+    .profile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: 24px;
+      background: linear-gradient(140deg, var(--glow), transparent 55%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .avatar {
+      width: 150px; height: 150px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      padding: 3px;
+      background: var(--accent-grad);
+      box-shadow: 0 0 34px var(--glow);
+    }
+    .avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      border: 3px solid var(--bg);
+    }
+    .profile-name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+    .profile-cap { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 18px; }
+    .profile-sep { height: 1px; background: var(--border); margin: 0 0 16px; }
+    .profile-status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .dot {
+      display: inline-block;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+      margin-right: 6px;
+    }
+
+    /* ---- Metrics band ---- */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 46px 0 70px;
+    }
+    .metric {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 22px 18px;
+      text-align: center;
+    }
+    .metric-num {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.9rem;
+      line-height: 1;
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 8px;
+    }
+    .metric-label { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* ---- Section ---- */
+    .section { margin-bottom: 70px; }
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .sec-title {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: -0.02em;
+      margin: 0;
+      position: relative;
+      padding-left: 18px;
+    }
+    .sec-title::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 5px; height: 74%;
+      border-radius: 4px;
+      background: var(--accent-grad);
+      box-shadow: 0 0 14px var(--glow);
+    }
+    .sec-tag { font-size: 0.85rem; color: var(--text-dim); }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.35s, background 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-strong);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--glow);
+      background: var(--surface-2);
+    }
+    .card p { color: var(--text-muted); margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card strong { color: var(--text); font-weight: 600; }
+    .card-h {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin: 0 0 12px;
+    }
+
+    /* ---- Projects ---- */
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .proj {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.35s, background 0.3s;
+    }
+    .proj:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-strong);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--glow);
+      background: var(--surface-2);
+    }
+    .proj-icon {
+      width: 50px; height: 50px;
+      display: grid; place-items: center;
+      border-radius: 13px;
+      font-size: 1.4rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .proj-title { font-family: var(--font-head); font-weight: 600; font-size: 1.12rem; margin-bottom: 10px; }
+    .proj-desc { color: var(--text-muted); font-size: 0.94rem; margin: 0 0 16px; }
+    .proj-list { list-style: none; padding: 0; margin: 0 0 18px; }
+    .proj-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+    .proj-list li::before {
+      content: "";
+      position: absolute;
+      left: 2px; top: 9px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-grad);
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+    .badge {
+      font-size: 0.74rem;
+      font-family: var(--font-head);
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--surface-2);
+    }
+    .proj-link {
+      margin-top: auto;
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--cyan);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .proj-link:hover { text-decoration: underline; }
+
+    /* ---- Experience timeline ---- */
+    .timeline {
+      display: grid;
+      gap: 16px;
+      position: relative;
+      padding-left: 26px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px; top: 8px; bottom: 8px;
+      width: 2px;
+      border-radius: 2px;
+      background: var(--accent-grad);
+      opacity: 0.55;
+    }
+    .tl-item {
+      position: relative;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 20px 22px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.3s;
+    }
+    .tl-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+      box-shadow: 0 0 26px var(--glow);
+    }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -26px; top: 26px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent-grad);
+      box-shadow: 0 0 14px var(--glow);
+      border: 2px solid var(--bg);
+    }
+    .tl-period {
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 6px;
+    }
+    .tl-role { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; margin-bottom: 8px; }
+    .tl-text { font-size: 0.93rem; color: var(--text-muted); margin: 0; }
+
+    /* ---- Engineering practice ---- */
+    .practice { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    /* ---- Stack ---- */
+    .stack { display: grid; gap: 12px; }
+    .stack-row {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 16px;
+      align-items: start;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .stack-row:hover { border-color: var(--border-strong); background: var(--surface-2); }
+    .stack-key {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .stack-val { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stack-val .badge { font-size: 0.8rem; }
+
+    /* ---- Skills ---- */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 22px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.3s;
+    }
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+      box-shadow: 0 0 26px var(--glow);
+    }
+    .skill-icon { font-size: 1.35rem; margin-bottom: 12px; }
+    .skill-h { font-family: var(--font-head); font-weight: 600; font-size: 1rem; margin-bottom: 8px; }
+    .skill-t { font-size: 0.87rem; color: var(--text-muted); margin: 0; }
+
+    /* ---- Contact ---- */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 14px; }
+    .contact-row {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+    }
+    .contact-row .lbl { font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .contact-row a { color: var(--text); text-decoration: none; font-family: var(--font-head); font-weight: 500; }
+    .contact-row a:hover { color: var(--cyan); }
+
+    .form-card {
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field span { font-size: 0.82rem; color: var(--text-muted); }
+    .field input, .field textarea {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 11px 13px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--glow);
+    }
+    .field-err { font-size: 0.78rem; color: #f87171; min-height: 14px; }
+    .mb14 { margin-bottom: 14px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+    .submit-btn {
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: 0.98rem;
+      color: #fff;
+      background: var(--accent-grad);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 13px 28px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px var(--glow); }
+    .submit-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+    /* ---- Footer ---- */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 34px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer a { color: var(--text); text-decoration: none; }
+    .footer a:hover { color: var(--cyan); }
+
+    /* ---- Back to top ---- */
+    .totop {
+      position: fixed;
+      right: 22px; bottom: 22px;
+      width: 46px; height: 46px;
+      border-radius: 13px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-2);
+      color: var(--text);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      font-size: 1.1rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, border-color 0.25s;
+      z-index: 50;
+    }
+    .totop.show { opacity: 1; pointer-events: auto; transform: none; }
+    .totop:hover { border-color: var(--accent); box-shadow: 0 0 22px var(--glow); }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 30px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; }
+      .projects { grid-template-columns: 1fr; }
+      .practice { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      .stack-row { grid-template-columns: 1fr; gap: 10px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { padding: 22px 16px 70px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      .topbar { margin-bottom: 40px; }
+      .timeline { padding-left: 20px; }
+      .tl-item::before { left: -20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="wrap">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div class="brand-text">Павел</div>
+      </div>
+      <button id="theme-toggle" class="theme-btn" aria-label="Переключить тему">
+        <span id="theme-toggle-icon">🌙</span>
+      </button>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Герой">
+      <div class="reveal">
+        <span class="eyebrow"><span class="pulse"></span> Open to work · Удалённо</span>
+        <h1 class="hero-name">Привет, я <span class="grad">Павел</span></h1>
+        <p class="hero-role">Full-stack разработка • ИИ-автоматизация</p>
+        <p class="hero-desc">
+          Делаю рабочие продукты под ключ: Telegram-боты с онлайн-оплатой, мини-приложения,
+          сайты и серверную автоматизацию. Веду задачу от идеи до запуска на реальном сервере —
+          быстрый MVP, итерации по фидбеку и стабильная работа 24/7.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Быстрые MVP</span>
+          <span class="tag">Бэкенд и API</span>
+          <span class="tag">Сервер под ключ</span>
+          <span class="tag">ИИ-автоматизация</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contacts">Написать мне →</a>
+          <a class="btn btn-ghost" href="#projects">Смотреть кейсы</a>
+        </div>
+      </div>
+
+      <aside class="profile reveal d2" aria-label="Профиль">
+        <div class="avatar"><img src="./avatar.jpg" alt="Аватар Павла" /></div>
+        <div class="profile-name">ПАВЕЛ</div>
+        <div class="profile-cap">Full-stack • ИИ-автоматизация</div>
+        <div class="profile-sep"></div>
+        <div class="profile-status">
+          <span><span class="dot"></span> Open to work</span>
+          <span>Удалённо (UTC+3)</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Metrics -->
+    <section class="metrics reveal" aria-label="Показатели">
+      <div class="metric"><div class="metric-num">5</div><div class="metric-label">продуктов работают в проде</div></div>
+      <div class="metric"><div class="metric-num">437</div><div class="metric-label">автотестов на одном проекте</div></div>
+      <div class="metric"><div class="metric-num">24/7</div><div class="metric-label">работа сервисов на сервере</div></div>
+      <div class="metric"><div class="metric-num">1000+</div><div class="metric-label">участников в сообществе, которое веду</div></div>
+    </section>
+
+    <!-- About + Опыт -->
+    <section class="section" aria-label="О себе и опыт">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">О себе</h2>
+        <span class="sec-tag">Коротко и по делу</span>
+      </div>
+      <div class="card reveal">
+        <p>
+          Меня зовут Павел. Разрабатываю Telegram-боты, мини-приложения, сайты и серверную
+          автоматизацию — беру задачу от идеи до запуска на реальном сервере и дальше отвечаю
+          за то, чтобы она там работала.
+        </p>
+        <p>
+          Делаю упор на понятный интерфейс, надёжный бэкенд и предсказуемый результат.
+          ИИ-инструменты (Claude Code, Codex, MCP) использую как ускоритель, но каждое
+          решение проверяю и довожу руками.
+        </p>
+        <p>
+          После запуска не пропадаю: подберу хостинг, настрою сервер и по договорённости
+          продолжаю поддерживать и развивать проект.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience timeline -->
+    <section class="section" id="experience" aria-label="Опыт">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">Опыт</h2>
+        <span class="sec-tag">Чем занимался и занимаюсь</span>
+      </div>
+      <div class="timeline">
+        <article class="tl-item reveal">
+          <div class="tl-period">апрель 2026 — сейчас</div>
+          <div class="tl-role">Разработка и эксплуатация продуктов</div>
+          <p class="tl-text">
+            Telegram-боты с онлайн-оплатой, мини-приложения, серверная автоматизация.
+            Полный цикл: требования, код, деплой, поддержка в режиме 24/7. Отвечаю за
+            результат целиком, а не за отдельный этап.
+          </p>
+        </article>
+        <article class="tl-item reveal d1">
+          <div class="tl-period">октябрь 2026 — сейчас</div>
+          <div class="tl-role">Технический куратор обучающего потока</div>
+          <p class="tl-text">
+            Сопровождаю учеников от установки инструментов до запуска собственных ботов и
+            серверов: разбор ошибок, код-ревью, обучающие материалы, ответы на вопросы по
+            инфраструктуре.
+          </p>
+        </article>
+        <article class="tl-item reveal d2">
+          <div class="tl-period">ранее и параллельно</div>
+          <div class="tl-role">Куратор крипто-сообщества, 1000+ участников</div>
+          <p class="tl-text">
+            Онбординг новичков, поддержка участников, порядок в чатах, разбор сложных
+            ситуаций. Опыт общения с большой аудиторией и работы в конфликтных кейсах.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects" aria-label="Кейсы">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">Кейсы</h2>
+        <span class="sec-tag">Что уже сделано и работает</span>
+      </div>
+      <div class="projects">
+        <article class="proj reveal">
+          <div class="proj-icon">💳</div>
+          <div class="proj-title">Telegram-бот с онлайн-оплатой</div>
+          <p class="proj-desc">
+            Бот с приёмом онлайн-платежей и подписками: оплата, продление, доступ по статусу
+            подписки. Работает в проде круглосуточно, деньги реальные.
+          </p>
+          <div class="badges">
+            <span class="badge">CloudPayments</span>
+            <span class="badge">Lava.top</span>
+            <span class="badge">Подписки</span>
+            <span class="badge">54-ФЗ</span>
+          </div>
+          <ul class="proj-list">
+            <li>Рекуррентные (регулярные) списания</li>
+            <li>Фискальные чеки через эквайринг</li>
+            <li>Обработка вебхуков платёжного провайдера</li>
+            <li>Работа на сервере 24/7</li>
+          </ul>
+          <a class="proj-link" href="https://t.me/orientir_pay_bot" target="_blank" rel="noreferrer">Открыть бота — пример работы →</a>
+        </article>
+
+        <article class="proj reveal d1">
+          <div class="proj-icon">📱</div>
+          <div class="proj-title">Telegram Mini App</div>
+          <p class="proj-desc">
+            Мини-приложение прямо внутри Telegram: интерактивный интерфейс, серверная часть и
+            встроенный видеоплеер. Работает на iOS и Android без установки из магазинов.
+          </p>
+          <div class="badges">
+            <span class="badge">Mini App</span>
+            <span class="badge">Видеоплеер</span>
+            <span class="badge">iOS + Android</span>
+            <span class="badge">Админ-панель</span>
+          </div>
+          <ul class="proj-list">
+            <li>Интерактивный интерфейс внутри Telegram</li>
+            <li>Хранение и воспроизведение роликов</li>
+            <li>Кроссплатформенность без сторов</li>
+            <li>Админ-панель для контента</li>
+          </ul>
+          <a class="proj-link" href="https://t.me/orientir_pay_bot" target="_blank" rel="noreferrer">Открыть бота — пример работы →</a>
+        </article>
+
+        <article class="proj reveal d2">
+          <div class="proj-icon">🤖</div>
+          <div class="proj-title">Автоматизация с ИИ-агентами</div>
+          <p class="proj-desc">
+            Команда автономных ИИ-агентов на моём сервере: координатор и исполнители.
+            Управление из Telegram, своя память между сессиями, делегирование задач.
+          </p>
+          <div class="badges">
+            <span class="badge">TypeScript</span>
+            <span class="badge">Bun</span>
+            <span class="badge">grammY</span>
+            <span class="badge">MCP</span>
+          </div>
+          <ul class="proj-list">
+            <li>Мост Telegram ↔ рабочая сессия агента</li>
+            <li>Координатор и рабочие агенты, делегирование</li>
+            <li>Память между сессиями, журнал решений</li>
+            <li>Полгода развития, около 100 коммитов</li>
+          </ul>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-icon">📊</div>
+          <div class="proj-title">Трекер личных финансов</div>
+          <p class="proj-desc">
+            Telegram Mini App для учёта доходов и расходов: категории, баланс, напоминания.
+            Свой бэкенд, своя база, свой сервер с HTTPS. Работает в проде.
+          </p>
+          <div class="badges">
+            <span class="badge">Python 3.12</span>
+            <span class="badge">FastAPI</span>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">nginx + HTTPS</span>
+          </div>
+          <ul class="proj-list">
+            <li><strong>437 автотестов</strong>, все зелёные</li>
+            <li>REST-бэкенд и схема базы с нуля</li>
+            <li>Mini App внутри Telegram, без сторов</li>
+            <li>Деплой на VPS, сертификат Let's Encrypt</li>
+          </ul>
+        </article>
+
+        <article class="proj reveal d1">
+          <div class="proj-icon">🛡️</div>
+          <div class="proj-title">Инфраструктура 24/7</div>
+          <p class="proj-desc">
+            Пять сервисов на одном сервере, которые должны жить без присмотра. Лимиты,
+            мониторинг, автоперезапуск, разбор инцидентов до причины, а не до симптома.
+          </p>
+          <div class="badges">
+            <span class="badge">Linux VPS</span>
+            <span class="badge">systemd</span>
+            <span class="badge">cgroup</span>
+            <span class="badge">Мониторинг</span>
+          </div>
+          <ul class="proj-list">
+            <li>Лимиты памяти через cgroup, защита от OOM</li>
+            <li>Сторожевой мониторинг с алертами в Telegram</li>
+            <li>Изоляция сервисов по пользователям системы</li>
+            <li>Два инцидента разобраны и закрыты в корне</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Engineering practice -->
+    <section class="section" aria-label="Инженерная практика">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">Инженерная практика</h2>
+        <span class="sec-tag">Как устроена работа изнутри</span>
+      </div>
+      <div class="practice">
+        <article class="card reveal">
+          <div class="card-h">Тесты до фичи, не после</div>
+          <p>На финансовом трекере — 437 автотестов. Сначала падающий тест, потом код,
+            который его чинит. Правка в проде не превращается в лотерею.</p>
+        </article>
+        <article class="card reveal d1">
+          <div class="card-h">Секреты не в коде</div>
+          <p>gitleaks и pre-commit-хуки, которые падают при находке ключа. Повод был
+            реальный: однажды боевой ключ эквайринга уехал в репозиторий — после этого
+            проверка стоит на входе, а не в голове.</p>
+        </article>
+        <article class="card reveal d2">
+          <div class="card-h">Умею закрывать неработающее</div>
+          <p>Гипотезу торгового сигнала проверил на семи годах данных, около 200 прогонов.
+            Преимущества не нашёл — проект закрыл, а не доделывал из упрямства.</p>
+        </article>
+        <article class="card reveal d2">
+          <div class="card-h">Этот сайт — тоже кейс</div>
+          <p>Статическая страница на Cloudflare Pages, форма обратной связи через
+            serverless-функцию с уведомлением в Telegram, тёмная и светлая темы, адаптив,
+            своя OG-карточка. Сделан целиком мной.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" aria-label="Навыки">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">Мои навыки</h2>
+        <span class="sec-tag">Стек и направления</span>
+      </div>
+      <div class="skills">
+        <article class="skill reveal"><div class="skill-icon">🤖</div><div class="skill-h">Telegram-боты</div><p class="skill-t">Боты с меню, логикой и хранением данных, работающие на сервере 24/7.</p></article>
+        <article class="skill reveal"><div class="skill-icon">📱</div><div class="skill-h">Telegram Mini Apps</div><p class="skill-t">Приложения внутри Telegram: интерфейс, бэкенд, видеоплеер, iOS и Android.</p></article>
+        <article class="skill reveal"><div class="skill-icon">💳</div><div class="skill-h">Платежи и интеграции</div><p class="skill-t">CloudPayments, Lava.top, подписки, рекуррентные списания, фискальные чеки.</p></article>
+        <article class="skill reveal"><div class="skill-icon">⚙️</div><div class="skill-h">Бэкенд и API</div><p class="skill-t">Серверная логика, интеграции по API, базы данных и надёжная работа под нагрузкой.</p></article>
+        <article class="skill reveal"><div class="skill-icon">🧩</div><div class="skill-h">Вёрстка и UI</div><p class="skill-t">CSS Grid/Flex, адаптив, аккуратные отступы и визуальная «чистота».</p></article>
+        <article class="skill reveal"><div class="skill-icon">🛠️</div><div class="skill-h">Разработка с ИИ</div><p class="skill-t">Claude Code, Codex, MCP — пишу код и автоматизирую задачи с ИИ.</p></article>
+        <article class="skill reveal"><div class="skill-icon">🧠</div><div class="skill-h">ИИ-агенты и автоматизация</div><p class="skill-t">Настраиваю автономных агентов: круглосуточные задачи без ручного контроля.</p></article>
+        <article class="skill reveal"><div class="skill-icon">🚀</div><div class="skill-h">Сервер и данные по 152-ФЗ</div><p class="skill-t">Настрою сервер и хостинг, разверну бэкенд 24/7 и подскажу, как хранить перс. данные клиентов из РФ по закону (152-ФЗ).</p></article>
+        <article class="skill reveal"><div class="skill-icon">⚡</div><div class="skill-h">Быстрые MVP</div><p class="skill-t">Собираю рабочий результат быстро и улучшаю его итерациями по фидбеку.</p></article>
+      </div>
+    </section>
+
+    <!-- Stack -->
+    <section class="section" id="stack" aria-label="Стек">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">Стек</h2>
+        <span class="sec-tag">С чем работаю руками</span>
+      </div>
+      <div class="stack">
+        <div class="stack-row reveal">
+          <div class="stack-key">Языки</div>
+          <div class="stack-val"><span class="badge">Python 3.12</span><span class="badge">TypeScript (strict)</span><span class="badge">SQL</span></div>
+        </div>
+        <div class="stack-row reveal">
+          <div class="stack-key">Бэкенд</div>
+          <div class="stack-val"><span class="badge">FastAPI</span><span class="badge">python-telegram-bot</span><span class="badge">grammY</span><span class="badge">REST</span><span class="badge">Вебхуки</span></div>
+        </div>
+        <div class="stack-row reveal">
+          <div class="stack-key">Данные</div>
+          <div class="stack-val"><span class="badge">PostgreSQL</span><span class="badge">Проектирование схемы</span><span class="badge">Миграции</span></div>
+        </div>
+        <div class="stack-row reveal">
+          <div class="stack-key">Инфраструктура</div>
+          <div class="stack-val"><span class="badge">Linux VPS</span><span class="badge">systemd</span><span class="badge">nginx</span><span class="badge">Let's Encrypt</span><span class="badge">cgroup-лимиты</span><span class="badge">Bun</span><span class="badge">tmux</span><span class="badge">Cloudflare Pages</span></div>
+        </div>
+        <div class="stack-row reveal">
+          <div class="stack-key">Платежи</div>
+          <div class="stack-val"><span class="badge">CloudPayments</span><span class="badge">Lava.top</span><span class="badge">Рекуррентные списания</span><span class="badge">Фискальные чеки 54-ФЗ</span></div>
+        </div>
+        <div class="stack-row reveal">
+          <div class="stack-key">ИИ и интеграции</div>
+          <div class="stack-val"><span class="badge">Claude API</span><span class="badge">Claude Code</span><span class="badge">MCP</span><span class="badge">AssemblyAI</span><span class="badge">Groq Whisper</span><span class="badge">ElevenLabs</span></div>
+        </div>
+        <div class="stack-row reveal">
+          <div class="stack-key">Практика</div>
+          <div class="stack-val"><span class="badge">pytest</span><span class="badge">git</span><span class="badge">gitleaks</span><span class="badge">pre-commit-хуки</span><span class="badge">Код-ревью</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="section" id="contacts" aria-label="Контакты">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">Контакты</h2>
+        <span class="sec-tag">Написать мне</span>
+      </div>
+      <div class="contact-wrap">
+        <div class="contact-info reveal">
+          <div class="contact-row">
+            <div class="lbl">Telegram</div>
+            <a href="https://t.me/pavelWork0" target="_blank" rel="noreferrer">@pavelWork0</a>
+          </div>
+          <div class="contact-row">
+            <div class="lbl">Формат</div>
+            <a>Удалённо · UTC+3</a>
+          </div>
+          <div class="contact-row">
+            <div class="lbl">Статус</div>
+            <a>Открыт к предложениям</a>
+          </div>
+        </div>
+
+        <form id="contact-form" class="form-card reveal d1" novalidate aria-label="Форма обратной связи">
+          <div class="form-grid">
+            <label class="field">
+              <span>Имя</span>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required />
+              <div class="field-err" id="name-error" aria-live="polite"></div>
+            </label>
+            <label class="field">
+              <span>Соцсеть или мессенджер</span>
+              <input id="contact-social" name="contact" type="text" autocomplete="off" required placeholder="Telegram, VK, Instagram" />
+              <div class="field-err" id="contact-error" aria-live="polite"></div>
+            </label>
+          </div>
+          <label class="field mb14">
+            <span>Сообщение</span>
+            <textarea id="contact-message" name="message" required placeholder="Коротко: кто вы и по какому вопросу..."></textarea>
+            <div class="field-err" id="message-error" aria-live="polite"></div>
+          </label>
+          <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp" />
+          <button type="submit" id="contact-submit-btn" class="submit-btn">Отправить сообщение →</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer reveal">
+      <span>Full-stack • ИИ-автоматизация</span>
+      <span>·</span>
+      <span>Связь: <a href="https://t.me/pavelWork0" target="_blank" rel="noreferrer">@pavelWork0</a></span>
+    </footer>
+  </div>
+
+  <button id="to-top" class="totop" aria-label="Наверх">↑</button>
+
+  <script>
+    (function () {
+      // 1) Theme
+      var THEME_KEY = "portfolio_theme";
+      var themeToggle = document.getElementById("theme-toggle");
+      var themeIcon = document.getElementById("theme-toggle-icon");
+
+      function setTheme(theme) {
+        var isLight = theme === "light";
+        document.body.classList.toggle("theme-light", isLight);
+        if (themeIcon) themeIcon.textContent = isLight ? "☀️" : "🌙";
+        try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+      }
+      try {
+        var saved = localStorage.getItem(THEME_KEY);
+        setTheme(saved === "light" ? "light" : "dark");
+      } catch (e) { setTheme("dark"); }
+      if (themeToggle) {
+        themeToggle.addEventListener("click", function () {
+          var next = document.body.classList.contains("theme-light") ? "dark" : "light";
+          setTheme(next);
+        });
+      }
+
+      // 2) Reveal on scroll
+      function setupReveal() {
+        var els = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+        if (!("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in-view"); });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        els.forEach(function (el) { io.observe(el); });
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", setupReveal);
+      else setupReveal();
+
+      // 3) Back to top
+      var toTop = document.getElementById("to-top");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 600) toTop.classList.add("show");
+        else toTop.classList.remove("show");
+      }, { passive: true });
+      if (toTop) toTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // 4) Contact form → /api/contact
+      var contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        var nameEl = document.getElementById("contact-name");
+        var contactEl = document.getElementById("contact-social");
+        var msgEl = document.getElementById("contact-message");
+        var nameErr = document.getElementById("name-error");
+        var contactErr = document.getElementById("contact-error");
+        var msgErr = document.getElementById("message-error");
+
+        function setErr(el, m) { if (el) el.textContent = m || ""; }
+
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = (nameEl && nameEl.value ? nameEl.value : "").trim();
+          var contact = (contactEl && contactEl.value ? contactEl.value : "").trim();
+          var message = (msgEl && msgEl.value ? msgEl.value : "").trim();
+          setErr(nameErr, ""); setErr(contactErr, ""); setErr(msgErr, "");
+          var ok = true;
+          if (!name) { setErr(nameErr, "Введите имя."); ok = false; }
+          if (!contact) { setErr(contactErr, "Укажите, где с вами связаться."); ok = false; }
+          if (!message) { setErr(msgErr, "Введите сообщение."); ok = false; }
+          if (!ok) return;
+
+          var btn = document.getElementById("contact-submit-btn");
+          var original = btn ? btn.textContent : "";
+          if (btn) { btn.disabled = true; btn.textContent = "Отправляю..."; }
+          var website = document.getElementById("contact-website");
+
+          fetch("/api/contact", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              name: name, contact: contact, message: message,
+              website: website ? website.value : ""
+            })
+          })
+            .then(function (r) {
+              return r.json().catch(function () { return {}; }).then(function (b) {
+                return r.ok && b && b.ok;
+              });
+            })
+            .then(function (okResp) {
+              if (okResp) {
+                alert("Спасибо! Сообщение отправлено — я скоро отвечу.");
+                contactForm.reset();
+              } else {
+                alert("Не удалось отправить. Напишите мне напрямую в Telegram: @pavelWork0");
+              }
+            })
+            .catch(function () {
+              alert("Не удалось отправить. Напишите мне напрямую в Telegram: @pavelWork0");
+            })
+            .then(function () {
+              if (btn) { btn.disabled = false; btn.textContent = original; }
+            });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
